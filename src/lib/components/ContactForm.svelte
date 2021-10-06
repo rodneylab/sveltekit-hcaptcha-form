@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import { EmailInputField, TextArea, TextInputField } from '@rodneylab/sveltekit-components';
   import website from '$lib/config/website';
   import { onMount, onDestroy } from 'svelte';
@@ -31,11 +31,6 @@
   let name = '';
   let email = '';
   let message = '';
-  let errors: {
-    name?: string;
-    email?: string;
-    message?: string;
-  };
   $: errors = {};
   $: submitting = false;
 
@@ -50,7 +45,7 @@
       const { response: hCaptchaResponse } = await hcaptcha.execute(hcaptchaWidgetID, {
         async: true,
       });
-      /* for a static site, you can use a Cloudflare Worker to manage the server part of the
+      /* for a static site, you can use a Cloudflare worker to manage the server part of the
        * hCaptcha and send your site admin an email with the contact details
        *
        * in this case, use:

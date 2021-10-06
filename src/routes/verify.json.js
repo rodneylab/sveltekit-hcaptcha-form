@@ -11,7 +11,6 @@ export async function post(request) {
       credentials: 'omit',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        Cookie: request.headers.cookie,
       },
       body: body.toString(),
     });
