@@ -1,6 +1,6 @@
 {
-  "name": "sveltekit-blog-mdx",
-  "version": "1.0.0",
+  "name": "sveltekit-hcaptcha-form",
+  "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev --port 3000",
     "build": "npm run generate:manifest && svelte-kit build",

@@ -1,4 +1,5 @@
 /** @type {import('@sveltejs/kit').Config} */
+import 'dotenv/config';
 import adapter from '@sveltejs/adapter-static';
 import { imagetools } from 'vite-imagetools';
 import { mdsvex } from 'mdsvex';

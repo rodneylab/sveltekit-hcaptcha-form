@@ -16,6 +16,7 @@
     wireUsername,
   } = website;
   import SEO from '$lib/components/SEO/index.svelte';
+  import ContactForm from '$lib/components/ContactForm.svelte';
 
   let title = 'Contact';
   let metadescription = 'Get in touch with Rodneylab, the developer of Climate SvelteKit Starter.';
@@ -80,6 +81,7 @@
     </ul>
   </div></Card
 >
+<ContactForm />
 
 <style lang="scss">
   .contact-details {
