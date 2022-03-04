@@ -1,6 +1,6 @@
-export async function post(request) {
+export async function post({ request }) {
   try {
-    const { name, email, message, response: hCaptchaClientResponse } = request.body;
+    const { name, email, message, response: hCaptchaClientResponse } = await request.json();
 
     const secret = process.env['HCAPTCHA_SECRETKEY'];
     const sitekey = process.env['VITE_HCAPTCHA_SITEKEY'];
