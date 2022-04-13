@@ -6,7 +6,11 @@
 
   const { hcaptchaSitekey, workerUrl } = website;
 
-  let hcaptcha = { execute: async (_a, _b) => ({ response: '' }), render: (_a, _b) => {} };
+  /** @typedef {{
+    execute(hcaptchaWidgetID: string, opts?: { async: boolean }): Promise<HCaptchaExecuteResponse>;
+    render(id: string, config: { sitekey: string; size: string; theme: string }): string;
+  } | null}*/
+  let hcaptcha;
   let hcaptchaWidgetID;
 
   onMount(() => {
@@ -31,6 +35,9 @@
   let name = '';
   let email = '';
   let message = '';
+
+  /** @typedef {{email: string; message: string; name: string;}} */
+  let errors;
   $: errors = {};
   $: submitting = false;
 
