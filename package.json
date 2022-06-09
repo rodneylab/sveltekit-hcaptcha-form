@@ -1,9 +1,11 @@
 {
   "name": "sveltekit-hcaptcha-form",
   "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "description": "SvelteKit hCaptcha contact form: see how you can scare bots away from your Svelte site using a privacy focussed captcha service.",
   "scripts": {
     "dev": "svelte-kit dev --port 3000",
-    "build": "npm run generate:manifest && svelte-kit build",
+    "build": "svelte-kit build",
     "preview": "svelte-kit preview --port 3000",
     "check": "svelte-check --fail-on-hints",
     "check:watch": "svelte-check --watch",
@@ -55,10 +57,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rodneylab/sveltekit-seo"
+    "url": "https://github.com/rodneylab/sveltekit-hcaptcha-form"
   },
   "bugs": {
-    "url": "https://github.com/rodneylab/sveltekit-seo/issues"
+    "url": "https://github.com/rodneylab/sveltekit-hcaptcha-form/issues"
   },
   "type": "module",
   "dependencies": {
