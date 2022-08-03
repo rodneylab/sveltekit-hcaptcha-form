@@ -1,7 +1,7 @@
 import { getPost, getPostsContent } from '$lib/utilities/blog';
 
 /** @type {import('./index.json').RequestHandler} */
-export async function get({ params }) {
+export async function GET({ params }) {
   const { slug } = params;
   const articles = getPostsContent();
   const article = articles.find((element) => element.slug === slug);

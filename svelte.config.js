@@ -1,7 +1,6 @@
 /** @type {import('@sveltejs/kit').Config} */
 import 'dotenv/config';
 import adapter from '@sveltejs/adapter-static';
-import { imagetools } from 'vite-imagetools';
 import { mdsvex } from 'mdsvex';
 import preprocess from 'svelte-preprocess';
 
@@ -21,12 +20,6 @@ const config = {
       hooks: 'src/hooks',
     },
     prerender: { default: true },
-    vite: {
-      define: {
-        'process.env.VITE_BUILD_TIME': JSON.stringify(new Date().toISOString()),
-      },
-      plugins: [imagetools({ force: true })],
-    },
   },
 };
 
