@@ -14,8 +14,8 @@ export async function GET() {
 // 	try {
 // 		const { name, email, message, response: hCaptchaClientResponse } = await request.json();
 
-// 		const secret = process.env['HCAPTCHA_SECRETKEY'];
-// 		const sitekey = process.env['VITE_HCAPTCHA_SITEKEY'];
+//    const secret = HCAPTCHA_SECRETKEY;
+//    const sitekey = PUBLIC_HCAPTCHA_SITEKEY;
 // 		const body = new URLSearchParams({ response: hCaptchaClientResponse, secret, sitekey });
 
 // 		const response = await fetch('https://hcaptcha.com/siteverify', {
