@@ -1,4 +1,19 @@
-const facebookPageName = import.meta.env ? import.meta.env.VITE_FACEBOOK_PAGE : '';
+import {
+	PUBLIC_CONTACT_EMAIL,
+	PUBLIC_FACEBOOK_PAGE,
+	PUBLIC_GITHUB_PAGE,
+	PUBLIC_LINKEDIN_PROFILE,
+	PUBLIC_SITE_URL,
+	PUBLIC_TELEGRAM_USERNAME,
+	PUBLIC_TIKTOK_USERNAME,
+	PUBLIC_TWITTER_USERNAME,
+	PUBLIC_TWITTER_USER_ID,
+	PUBLIC_WIRE_USERNAME,
+	PUBLIC_HCAPTCHA_SITEKEY,
+	PUBLIC_WORKER_URL,
+} from '$env/static/public';
+
+const facebookPageName = PUBLIC_FACEBOOK_PAGE;
 
 const website = {
 	author: 'Rodney Johnson',
@@ -6,24 +21,22 @@ const website = {
 	siteLanguage: 'en-GB',
 	siteTitle: 'SvelteKit Blog Mdx',
 	siteShortTitle: 'SvelteKit Blog',
-	siteUrl: import.meta.env ? import.meta.env.VITE_SITE_URL : '',
+	siteUrl: PUBLIC_SITE_URL,
 	icon: 'static/icon.png',
 	backgroundColor: '#1b4079',
 	themeColor: '#d62828',
-	contactEmail: import.meta.env ? import.meta.env.VITE_CONTACT_EMAIL : '',
-	facebookPage: `https://www.facebook.com/${facebookPageName}`,
+	contactEmail: PUBLIC_CONTACT_EMAIL,
+	facebookPage: PUBLIC_FACEBOOK_PAGE,
 	facebookPageName,
-	githubPage: import.meta.env ? import.meta.env.VITE_GITHUB_PAGE : '',
-	linkedinProfile: import.meta.env ? import.meta.env.VITE_LINKEDIN_PROFILE : '',
-	telegramUsername: import.meta.env ? import.meta.env.VITE_TELEGRAM_USERNAME : '',
-	tiktokUsername: import.meta.env ? import.meta.env.VITE_TIKTOK_USERNAME : '',
-	twitterUsername: import.meta.env ? import.meta.env.VITE_TWITTER_USERNAME : '',
-	twitterUserId: import.meta.env ? import.meta.env.VITE_TWITTER_ID : '',
-	wireUsername: import.meta.env ? import.meta.env.VITE_WIRE_USERNAME : '',
-	hcaptchaSitekey: import.meta.env
-		? /** @type {string}*/ (import.meta.env.VITE_HCAPTCHA_SITEKEY)
-		: '',
-	workerUrl: import.meta.env ? import.meta.env.VITE_WORKER_URL : '',
+	githubPage: PUBLIC_GITHUB_PAGE,
+	linkedinProfile: PUBLIC_LINKEDIN_PROFILE,
+	telegramUsername: PUBLIC_TELEGRAM_USERNAME,
+	tiktokUsername: PUBLIC_TIKTOK_USERNAME,
+	twitterUsername: PUBLIC_TWITTER_USERNAME,
+	twitterUserId: PUBLIC_TWITTER_USER_ID,
+	wireUsername: PUBLIC_WIRE_USERNAME,
+	hcaptchaSitekey: PUBLIC_HCAPTCHA_SITEKEY,
+	workerUrl: PUBLIC_WORKER_URL,
 };
 
 export { website as default };

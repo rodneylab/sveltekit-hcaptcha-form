@@ -12,7 +12,6 @@ specifiers:
   '@types/object-hash': ^2.2.1
   commitlint: ^17.0.3
   dayjs: ^1.11.3
-  dotenv: ^16.0.1
   eslint: ^8.19.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -55,7 +54,6 @@ devDependencies:
   '@types/object-hash': 2.2.1
   commitlint: 17.1.2
   dayjs: 1.11.5
-  dotenv: 16.0.2
   eslint: 8.23.1
   eslint-config-prettier: 8.5.0_eslint@8.23.1
   eslint-plugin-svelte3: 4.0.0_rhh4tpcyg7zwtq6pdnkzw5gxma
@@ -1017,11 +1015,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       is-obj: 2.0.0
-    dev: true
-
-  /dotenv/16.0.2:
-    resolution: {integrity: sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==}
-    engines: {node: '>=12'}
     dev: true
 
   /emoji-regex/8.0.0:

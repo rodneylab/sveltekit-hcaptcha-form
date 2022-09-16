@@ -6,6 +6,8 @@ export async function GET() {
 }
 
 // DELETE content above and uncomment content below if running in SSR rather than static mode
+// import { HCAPTCHA_SECRETKEY } from '$env/static/private';
+// import { PUBLIC_HCAPTCHA_SITEKEY } from '$env/static/public';
 
 /** @type {import('./$types').RequestHandler} */
 // export async function POST({ request }) {

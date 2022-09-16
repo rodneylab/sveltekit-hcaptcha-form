@@ -29,7 +29,6 @@
 		"@types/object-hash": "^2.2.1",
 		"commitlint": "^17.0.3",
 		"dayjs": "^1.11.3",
-		"dotenv": "^16.0.1",
 		"eslint": "^8.19.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
