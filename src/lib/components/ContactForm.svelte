@@ -2,7 +2,7 @@
 	import { EmailInputField, TextArea, TextInputField } from '@rodneylab/sveltekit-components';
 	import website from '$lib/config/website';
 	import { onMount, onDestroy } from 'svelte';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	const { hcaptchaSitekey, workerUrl } = website;
 
@@ -61,7 +61,7 @@
 			 *
 			 * for a server side rendered app, use the verify endpoint to do the processing:
 			 *
-			 * fetch('/verify.json', {
+			 * fetch('/api/verify', {
 			 */
 			fetch(`${workerUrl}/verify`, {
 				method: 'POST',

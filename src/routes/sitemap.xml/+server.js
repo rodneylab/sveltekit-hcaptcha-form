@@ -1,19 +1,8 @@
-/* This sitemap will be served by SSR sites only, for static sites, incorporate the command
- *
- *   node ./generate-sitemap.js
- *
- * into your build script (before build).  This will create sitemap.xml in the static/ folder
- *
- * alternatively run
- *
- *   pnpm run generate:sitemap
- *
- * as and when static sitemap needs creating/updating
- */
-
 import website from '$lib/config/website';
 import { BLOG_PATH, getPosts, getPostsContent } from '$lib/utilities/blog';
 import path from 'path';
+
+export const prerender = true;
 
 const { siteUrl } = website;
 
@@ -57,6 +46,7 @@ const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>
 		.join('')}
 </urlset>`;
 
+/** @type {import('./$types').RequestHandler} */
 export async function GET() {
 	const __dirname = path.resolve();
 	const location = path.join(__dirname, BLOG_PATH);
