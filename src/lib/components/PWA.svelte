@@ -5,5 +5,5 @@
 
 <svelte:head>
 	<meta name="theme-color" content={themeColor} />
-	<link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </svelte:head>

@@ -1,5 +1,6 @@
 import {
 	PUBLIC_CONTACT_EMAIL,
+	PUBLIC_FACEBOOK_AUTHOR_PAGE,
 	PUBLIC_FACEBOOK_PAGE,
 	PUBLIC_GITHUB_PAGE,
 	PUBLIC_LINKEDIN_PROFILE,
@@ -14,6 +15,7 @@ import {
 } from '$env/static/public';
 
 const facebookPageName = PUBLIC_FACEBOOK_PAGE;
+const facebookAuthorPageName = PUBLIC_FACEBOOK_AUTHOR_PAGE;
 
 const website = {
 	author: 'Rodney Johnson',
@@ -26,7 +28,9 @@ const website = {
 	backgroundColor: '#1b4079',
 	themeColor: '#d62828',
 	contactEmail: PUBLIC_CONTACT_EMAIL,
-	facebookPage: PUBLIC_FACEBOOK_PAGE,
+	facebookAuthorPage: `https://www.facebook.com/${facebookAuthorPageName}`,
+	facebookAuthorPageName,
+	facebookPage: `https://www.facebook.com/${facebookPageName}`,
 	facebookPageName,
 	githubPage: PUBLIC_GITHUB_PAGE,
 	linkedinProfile: PUBLIC_LINKEDIN_PROFILE,
