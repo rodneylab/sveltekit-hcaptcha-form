@@ -56,7 +56,13 @@ export const getPosts = async (postsContent, body = false) => {
 			/** @type {{datePublished: string; lastUpdated: string; postTitle: string; seoMetaDescription: string;}} */ (
 				transformedContent.data.fm
 			);
-		let resultElement = { datePublished, lastUpdated, postTitle, seoMetaDescription, slug };
+		let resultElement = {
+			datePublished,
+			lastUpdated,
+			postTitle,
+			seoMetaDescription,
+			slug,
+		};
 		if (body) {
 			resultElement = { ...resultElement, body: transformedContent.code };
 		}

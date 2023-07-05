@@ -6,7 +6,13 @@ export async function load() {
 			const slug = path.split('/').at(-2);
 			const { metadata } = await mdModules[path]();
 			const { datePublished, lastUpdated, postTitle, seoMetaDescription } = metadata;
-			return { datePublished, lastUpdated, postTitle, seoMetaDescription, slug };
+			return {
+				datePublished,
+				lastUpdated,
+				postTitle,
+				seoMetaDescription,
+				slug,
+			};
 		}),
 	);
 	return { posts };

@@ -53,7 +53,8 @@
 
 ### Feat
 
-- ✨ added static (non-responsive) images as fallback so repo works out of the box without Imgix credentials
+- ✨ added static (non-responsive) images as fallback so repo works out of the
+  box without Imgix credentials
 
 ### Fix
 
@@ -129,7 +130,8 @@
 - **dependencies**: 💫 update package:
 - **styles**: 💄 added style optimsation for touch screen
 - **dependencies**: 💫 update packages:
-- **layout**: 🐞 ironed out another issue with layout template for non blog post pages
+- **layout**: 🐞 ironed out another issue with layout template for non blog post
+  pages
 - **package.json**: reset server ports to 3000
 - **layout**: 🐞 fixed call of blog post data in layout for non blog-post
 - **dependencies**: 💫 update packages
@@ -166,8 +168,10 @@
 
 ### Refactor
 
-- 🛁 moved blog posts from src/content to src/routes for better integration with svelteKit and improved handling of mdsvex
-- **styles**: 🛁 removed all variables from global styles and included in separate file
+- 🛁 moved blog posts from src/content to src/routes for better integration with
+  svelteKit and improved handling of mdsvex
+- **styles**: 🛁 removed all variables from global styles and included in
+  separate file
 
 ### Feat
 
