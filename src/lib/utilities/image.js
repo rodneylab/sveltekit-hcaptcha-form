@@ -6,7 +6,7 @@ export async function dominantColour({ source }) {
 		const { dominant } = await image.stats();
 		return dominant;
 	} catch (error) {
-		console.error('Error determining dominant colour: ', source);
+		console.error(`Error generating dominantColour: ${error} - ${source}`);
 	}
 }
 
@@ -26,7 +26,7 @@ export async function lowResolutionPlaceholder({ source }) {
 			.toBuffer({ resolveWithObject: false });
 		return `data:image/jpeg;base64,${(await buffer).toString('base64')}`;
 	} catch (error) {
-		console.error('Error generating low resolution placeholder: ', source);
+		console.error(`Error generating low resolution placeholder: ${error} - ${source}`);
 	}
 }
 
@@ -36,6 +36,6 @@ export async function metadata({ source }) {
 		const { format, height, width } = await image.metadata();
 		return { format, height, width };
 	} catch (error) {
-		console.error('Error determining image meta: ', source);
+		console.error(`Error generating metadata: ${error} - ${source}`);
 	}
 }

@@ -28,18 +28,17 @@
 
 	onDestroy(() => {
 		if (browser) {
-			hcaptcha = { execute: async () => ({ response: '' }), render: () => {} };
+			hcaptcha = { execute: async () => ({ response: '' }), render: () => '' };
 		}
 	});
 
-	let name = '';
-	let email = '';
-	let message = '';
+	let name = $state('');
+	let email = $state('');
+	let message = $state('');
 
 	/** @typedef {{email: string; message: string; name: string;}} */
-	let errors;
-	$: errors = {};
-	$: submitting = false;
+	let errors = $state({});
+	let submitting = $state(false);
 
 	function clearFormFields() {
 		name = '';
@@ -47,8 +46,13 @@
 		message = '';
 	}
 
-	async function handleSubmit() {
+	/**
+	 * Returns array of objects containing the slug and post Markdown content
+	 * @param {SubmitEvent & { currentTarget: EventTarget & HTMLFormElement }} event
+	 */
+	async function handleSubmit(event) {
 		try {
+			event.preventDefault();
 			const { response: hCaptchaResponse } = await hcaptcha.execute(hcaptchaWidgetID, {
 				async: true,
 			});
@@ -79,7 +83,7 @@
 			console.log('Details: ', { name, email, message });
 			clearFormFields();
 		} catch (error) {
-			console.error('Error in contact form submission');
+			console.error(`Error in contact form submission: ${error}`);
 		}
 	}
 </script>
@@ -88,7 +92,7 @@
 	<script src="https://js.hcaptcha.com/1/api.js?render=explicit" async defer></script>
 </svelte:head>
 
-<form class="form" on:submit|preventDefault={handleSubmit}>
+<form class="form" onsubmit={handleSubmit}>
 	<h2>Drop me a message</h2>
 	<TextInputField
 		id="form-name"
@@ -130,7 +134,7 @@
 		data-sitekey={hcaptchaSitekey}
 		data-size="invisible"
 		data-theme="dark"
-	/>
+	></div>
 </form>
 
 <style lang="scss">
@@ -138,10 +142,10 @@
 		display: flex;
 		flex-direction: column;
 		width: 80%;
-		margin: $spacing-6 auto;
+		margin: variables.$spacing-6 auto;
 	}
 	button {
 		cursor: pointer;
-		padding: $spacing-2 $spacing-0;
+		padding: variables.$spacing-2 variables.$spacing-0;
 	}
 </style>

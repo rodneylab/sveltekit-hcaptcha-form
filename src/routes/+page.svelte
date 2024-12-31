@@ -9,8 +9,8 @@
 	import website from '$lib/config/website';
 
 	/** @type {import('./$types').PageData} */
-	export let data;
-	const { posts } = data;
+	let { data } = $props();
+	let { posts } = $derived(data);
 
 	const { author, siteUrl } = website;
 
@@ -22,7 +22,7 @@
 		},
 	];
 	let metadescription =
-		'SvelteKit MDsvex Blog Starter - starter code by Rodney Lab to help you get going on your next blog site';
+		'SvelteKit Blog Starter - starter code by Rodney Lab to help you get going on your next blog site';
 	const featuredImageAlt =
 		'picture of a person with long, curly hair, wearing a red had taking a picture with an analogue camera';
 	const featuredImage = {
@@ -69,7 +69,7 @@
 <SEO {...seoProps} />
 <header>
 	<h1>Climate &mdash; Sveltekit Starter</h1>
-	<h2>SvelteKit MDsveX (Markdown for Svelte) Blog</h2>
+	<h2>SvelteKit Blog</h2>
 </header>
 <Card>
 	<h2><span>About me</span></h2>
@@ -83,6 +83,6 @@
 
 <style lang="scss">
 	header > h2 {
-		font-size: $font-size-3;
+		font-size: variables.$font-size-3;
 	}
 </style>

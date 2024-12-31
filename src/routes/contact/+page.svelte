@@ -5,7 +5,7 @@
 	import FacebookIcon from '$lib/components/Icons/Facebook.svelte';
 	import WireIcon from '$lib/components/Icons/Wire.svelte';
 	import TelegramIcon from '$lib/components/Icons/Telegram.svelte';
-	import TwitterIcon from '$lib/components/Icons/Twitter.svelte';
+	import XIcon from '$lib/components/Icons/X.svelte';
 	import website from '$lib/config/website';
 	const {
 		contactEmail,
@@ -59,7 +59,7 @@
 				</ExternalLink>
 			</li>
 			<li>
-				<span class="icon"><TwitterIcon /></span><ExternalLink
+				<span class="icon"><XIcon /></span><ExternalLink
 					ariaLabel="D M Rodney Lab on Twitter"
 					href={`https://twitter.com/messages/compose?recipient-id=${twitterUserId}`}
 				>
@@ -94,8 +94,8 @@
 
 			li {
 				display: flex;
-				padding-left: $spacing-2;
-				font-size: $font-size-2;
+				padding-left: variables.$spacing-2;
+				font-size: variables.$font-size-2;
 			}
 		}
 	}
@@ -103,10 +103,10 @@
 	.icon {
 		display: flex;
 		align-items: center;
-		color: $color-theme-4;
+		color: variables.$color-theme-4;
 	}
 
 	.contact-address {
-		margin-left: $spacing-2;
+		margin-left: variables.$spacing-2;
 	}
 </style>
