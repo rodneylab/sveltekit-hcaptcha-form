@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
-	export let imageData;
+	let { imageData } = $props();
 
 	onMount(() => {
 		if (browser) {
@@ -32,9 +32,9 @@
 
 <style lang="scss">
 	img {
-		border-radius: $spacing-3;
+		border-radius: variables.$spacing-3;
 		background-size: cover;
-		background-color: $color-theme-4;
-		margin-bottom: $spacing-12;
+		background-color: variables.$color-theme-4;
+		margin-bottom: variables.$spacing-12;
 	}
 </style>

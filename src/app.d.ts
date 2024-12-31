@@ -1,7 +1,5 @@
-/// <reference types="@sveltejs/kit" />
-
-import type { ILazyLoadInstance } from 'vanilla-lazyload';
-
+// See https://kit.svelte.dev/docs/types#app
+// for information about these interfaces
 declare global {
 	interface Document {
 		lazyloadInstance: ILazyLoadInstance;
@@ -21,4 +19,11 @@ declare global {
 			render(id: string, config: { sitekey: string; size: string; theme: string }): string;
 		};
 	}
+	namespace App {
+		// interface Locals {}
+		// interface PageData {}
+		// interface Platform {}
+	}
 }
+
+export {};

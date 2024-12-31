@@ -1,10 +1,8 @@
 <script>
-	import readingTime from 'reading-time';
 	import BannerImage from '$lib/components/BannerImage.svelte';
 	import SEO from '$lib/components/SEO/index.svelte';
 
-	export let imageData;
-	export let post;
+	let { imageData, post, sanitisedHtml } = $props();
 
 	const {
 		datePublished,
@@ -71,3 +69,5 @@
 
 <BannerImage {imageData} />
 <h1>{title}</h1>
+<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+{@html sanitisedHtml}

@@ -1,4 +1,5 @@
-import { compile } from 'mdsvex';
+import { parse } from 'yaml';
+
 export const BLOG_PATH = 'src/content/blog';
 
 /**
@@ -25,13 +26,13 @@ export async function getSlugs() {
  */
 export async function getPostsContent() {
 	try {
-		const postFiles = import.meta.glob('../../content/blog/**/index.md');
+		const postFiles = await import.meta.glob('../../content/blog/**/index.md');
 		const postPromises = Object.keys(postFiles).map(async (element) => {
 			await postFiles[element]();
 			const lastIndex = element.lastIndexOf('/index.md');
 			const firstIndex = element.lastIndexOf('/', lastIndex - 1) + 1;
 			const slug = element.slice(firstIndex, lastIndex);
-			const content = (await import(`${element}?raw`)).default;
+			const content = (await import(/* @vite-ignore */ `${element}?raw`)).default;
 
 			return { slug, content };
 		});
@@ -42,32 +43,22 @@ export async function getPostsContent() {
 	}
 }
 
-/**
- * Returns an array of post metadata, with optional post body too.  Array is sort in reverse
- * chrononological order
- * @param {{slug: string; content: string;}[]} postsContent -
- * @param {boolean} body - if true the HTML post body is returned as well as meta
- */
-export const getPosts = async (postsContent, body = false) => {
-	const postPromises = postsContent.map(async (element) => {
-		const { content, slug } = element;
-		const transformedContent = await compile(content);
-		const { datePublished, lastUpdated, postTitle, seoMetaDescription } =
-			/** @type {{datePublished: string; lastUpdated: string; postTitle: string; seoMetaDescription: string;}} */ (
-				transformedContent.data.fm
-			);
-		let resultElement = {
-			datePublished,
-			lastUpdated,
-			postTitle,
-			seoMetaDescription,
-			slug,
+export const separateFrontmatter = (markdown) => {
+	const frontmatterStartIndex = markdown.indexOf('---') + 3;
+	const frontmatterEndIndex = markdown.indexOf('---', frontmatterStartIndex);
+
+	if (frontmatterStartIndex !== -1 && frontmatterEndIndex !== -1) {
+		const parsedFrontmatter = parse(markdown.slice(frontmatterStartIndex, frontmatterEndIndex));
+
+		return {
+			frontmatter: parsedFrontmatter,
+			markdownBody: markdown.slice(frontmatterEndIndex + 3).trim(),
 		};
-		if (body) {
-			resultElement = { ...resultElement, body: transformedContent.code };
-		}
-		return resultElement;
-	});
-	const result = await Promise.all(postPromises);
-	return result.sort((a, b) => Date.parse(b.datePublished) - Date.parse(a.datePublished));
+	}
+
+	// assume there is no frontmatter
+	return {
+		frontmatter: null,
+		markdownBody: markdown,
+	};
 };
